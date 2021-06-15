@@ -3,9 +3,19 @@
 
 By [Jia Guo](mailto:guojia@gmail.com?subject=[GitHub]%20InsightFace%20Project) and [Jiankang Deng](https://jiankangdeng.github.io/)
 
+## Top News
+
+**`2021-06-05`**: We launch a [Masked Face Recognition Challenge & Workshop](https://github.com/deepinsight/insightface/tree/master/challenges/iccv21-mfr) on ICCV 2021.
+
+**`2021-05-15`**: We released an efficient high accuracy face detection approach called [SCRFD](https://github.com/deepinsight/insightface/tree/master/detection/scrfd).
+
+**`2021-04-18`**: We achieved Rank-4th on NIST-FRVT 1:1, see [leaderboard](https://pages.nist.gov/frvt/html/frvt11.html).
+
+**`2021-03-13`**: We have released our official ArcFace PyTorch implementation, see [here](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). 
+
 ## License
 
-The code of InsightFace is released under the MIT License. There is no limitation for both acadmic and commercial usage.
+The code of InsightFace is released under the MIT License. There is no limitation for both academic and commercial usage.
 
 The training data containing the annotation (and the models trained with these data) are available for non-commercial research purposes only.
 
@@ -24,11 +34,17 @@ Please click the image to watch the Youtube video. For Bilibili users, click [he
 
 ## Recent Update
 
+**`2021-06-05`**: We launch a [Masked Face Recognition Challenge & Workshop](https://github.com/deepinsight/insightface/tree/master/challenges/iccv21-mfr) on ICCV 2021.
+
+**`2021-05-15`**: We released an efficient high accuracy face detection approach called [SCRFD](https://github.com/deepinsight/insightface/tree/master/detection/scrfd).
+
+**`2021-04-18`**: We achieved Rank-4th on NIST-FRVT 1:1, see [leaderboard](https://pages.nist.gov/frvt/html/frvt11.html).
+
 **`2021-03-13`**: We have released our official ArcFace PyTorch implementation, see [here](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch). 
 
 **`2021-03-09`**: [Tips](https://github.com/deepinsight/insightface/issues/1426) for training large-scale face recognition model, such as millions of IDs(classes).
 
-**`2021-02-21`**: We provide a simple face mask renderer [here](https://github.com/deepinsight/insightface/tree/master/recognition/tools) which can be used as a data augmentation tool while training face recoginition models.
+**`2021-02-21`**: We provide a simple face mask renderer [here](https://github.com/deepinsight/insightface/tree/master/recognition/tools) which can be used as a data augmentation tool while training face recognition models.
 
 **`2021-01-20`**: [OneFlow](https://github.com/Oneflow-Inc/oneflow) based implementation of ArcFace and Partial-FC, [here](https://github.com/deepinsight/insightface/tree/master/recognition/oneflow_face).
 
@@ -110,7 +126,7 @@ All face images are aligned by ficial five landmarks and cropped to 112x112:
 Please check [Dataset-Zoo](https://github.com/deepinsight/insightface/wiki/Dataset-Zoo) for detail information and dataset downloading.
 
 
-* Please check *src/data/face2rec2.py* on how to build a binary face dataset. You can either choose *MTCNN* or *RetinaFace* to align the faces.
+* Please check *recognition/tools/face2rec2.py* on how to build a binary face dataset. You can either choose *MTCNN* or *RetinaFace* to align the faces.
 
 ### Train
 
@@ -195,7 +211,7 @@ CUDA_VISIBLE_DEVICES='0,1,2,3' python -u train_parall.py --network r100 --loss a
 
 ### Pretrained Models
 
-You can use `$INSIGHTFACE/src/eval/verification.py` to test all the pre-trained models.
+You can use `$INSIGHTFACE_ROOT/recognition/arcface_torch/eval/verification.py` to test all the pre-trained models.
 
 **Please check [Model-Zoo](https://github.com/deepinsight/insightface/wiki/Model-Zoo) for more pretrained models.**
 
@@ -229,7 +245,7 @@ Results by using ``MS1M-IBUG(MS1M-V1)``
 
 ### Test on MegaFace
 
-Please check *`$INSIGHTFACE_ROOT/Evaluation/megaface/`* to evaluate the model accuracy on Megaface. All aligned images were already provided.
+Please check *`$INSIGHTFACE_ROOT/evaluation/megaface/`* to evaluate the model accuracy on Megaface. All aligned images were already provided.
 
 
 ### 512-D Feature Embedding

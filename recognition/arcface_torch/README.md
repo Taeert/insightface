@@ -27,10 +27,6 @@ Node 1:
 python -m torch.distributed.launch --nproc_per_node=8 --nnodes=2 --node_rank=1 --master_addr="ip1" --master_port=1234 train.py
 ```
 
-
-## Evaluation IJBC
-More details see [eval.md](docs/eval.md) in docs.
-
 ## Speed Benchmark
 ![Image text](https://github.com/nttstar/insightface-resources/blob/master/images/arcface_speed.png)
 
@@ -57,12 +53,21 @@ partial fc sampling strategy will get same accuracy with several times faster tr
 | Fp16 + Partial Fc 0.1  |    11.9                           | 10.8                             | 11.1                      | 
 
 
+## Evaluation IJBC
+More details see [eval.md](docs/eval.md) in docs.
+
+## Inference
+```shell
+python inference.py --weight ms1mv3_arcface_r50/backbone.pth --network r50
+```
+
 ## Model Zoo  
 
 The models are available for non-commercial research purposes only.
 
 All Model Can be found in here.  
 [Baidu Yun Pan](https://pan.baidu.com/s/1CL-l4zWqsI1oDuEEYVhj-g):   e8pw  
+[onedrive](https://1drv.ms/u/s!AswpsDO2toNKq0lWY69vN58GR6mw?e=p9Ov5d)
 
 ### MS1MV3
 |   Datasets          |    log     | backbone    | IJBC(1e-05) | IJBC(1e-04) |agedb30|cfp_fp|lfw  | 
