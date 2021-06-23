@@ -1,5 +1,12 @@
 # InsightFace Track of ICCV21-MFR
 
+## NEWS
+
+**``2021-06-17``**  Participants are now ordered in terms of highest scores across two datasets: **TAR@Mask** and **TAR@MR-All**, by the formula of ``0.25 * TAR@Mask + 0.75 * TAR@MR-All``.
+
+
+## Introduction
+
 The Masked Face Recognition Challenge & Workshop(MFR) will be held in conjunction with the International Conference on Computer Vision (ICCV) 2021. 
 
 [Workshop-Homepage](https://ibug.doc.ic.ac.uk/resources/masked-face-recognition-challenge-workshop-iccv-21/). 
@@ -29,7 +36,7 @@ In this challenge, we will evaluate the accuracy of following testsets:
 
 We ensure that there's no overlap between these testsets and public available training datasets, as they are not collected from online celebrities.
 
-Our test datasets mainly comes from [IFRT](https://github.com/deepinsight/insightface/tree/master/challenges/IFRT).
+Our test datasets mainly comes from [IFRT](../ifrt).
 
 ### ``Mask test-set:``
 
@@ -74,7 +81,7 @@ For ``Children`` set, TAR is measured on all-to-all 1:1 protocal, with FAR less 
 
 For other sets, TAR is measured on all-to-all 1:1 protocal, with FAR less than 0.000001(e-6).
 
-Similar to FRVT, participants are now ordered in terms of lowest mean rank across two datasets: **Rank@Mask** and **Rank@MR-All**, by the formula of ``0.51 * Rank@Mask + 0.49 * Rank@MR-All`` to prevent the same ranking score.
+Similar to FRVT, participants are now ordered in terms of highest scores across two datasets: **TAR@Mask** and **TAR@MR-All**, by the formula of ``0.25 * TAR@Mask + 0.75 * TAR@MR-All``.
 
 
 ## Baselines
@@ -106,7 +113,7 @@ Inference time was evaluated on Tesla V100 GPU, using onnxruntime-gpu==1.6.
   * Sub-Track A: Use MS1M-V3 as training set, download: [ref-link](https://github.com/deepinsight/insightface/tree/master/challenges/iccv19-lfr), feature length must <= 512, and the inference time must <= 10ms on Tesla V100 GPU.
   * Sub-Track B: Use Glint360K as training set, download: [ref-link](https://github.com/deepinsight/insightface/tree/master/recognition/partial_fc), feature length must <= 1024, and the inference time must <= 20ms on Tesla V100 GPU.
 2. Training set and testing set are both aligned to 112x112, re-alignment is prohibited.
-3. Mask data-augmentation is allowed, such as [this](https://github.com/deepinsight/insightface/tree/master/recognition/tools). The applied mask augmentation tool should be reproducible. 
+3. Mask data-augmentation is allowed, such as [this](../../recognition/_tools_). The applied mask augmentation tool should be reproducible. 
 4. External dataset and pretrained models are both prohibited.
 5. Participants submit onnx model, then get scores by our online evaluation. Test images are invisible.
 6. Matching score is measured by cosine similarity.
@@ -115,15 +122,15 @@ Inference time was evaluated on Tesla V100 GPU, using onnxruntime-gpu==1.6.
 9. Online evaluation server uses onnxruntime-gpu==1.6, cuda==10.2, cudnn==8.0.5.
 10. Any float-16 model weights is prohibited, as it will lead to incorrect model size estimiation.
 11. Please use ``onnx_helper.py`` to check whether the model is valid.
-12. Participants are finally ordered in terms of lowest mean rank across two datasets: **Rank@Mask** and **Rank@MR-All**.
+12. Participants are now ordered in terms of highest scores across two datasets: **TAR@Mask** and **TAR@MR-All**, by the formula of ``0.25 * TAR@Mask + 0.75 * TAR@MR-All``.
 13. Top-ranked participants should provide their solutions and codes to ensure their validity after submission closed.
 
 
 ## Tutorial 
 
-1. ArcFace-PyTorch (with Partial-FC), [code](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch), [tutorial-cn](https://github.com/deepinsight/insightface/blob/master/challenges/iccv21-mfr/tutorial_pytorch_cn.md)
-2. OneFlow, [code](https://github.com/deepinsight/insightface/tree/master/recognition/oneflow_face)
-3. MXNet, [code](https://github.com/deepinsight/insightface/tree/master/recognition/ArcFace)
+1. ArcFace-PyTorch (with Partial-FC), [code](../../recognition/arcface_torch), [tutorial-cn](tutorial_pytorch_cn.md)
+2. OneFlow, [code](../../recognition/oneflow_face)
+3. MXNet, [code](../../recognition/arcface_mxnet)
 
 ## Submission Guide
 

@@ -10,6 +10,8 @@ import glob
 import onnxruntime
 from .arcface_onnx import *
 from .scrfd import *
+from .landmark import *
+from .attribute import Attribute
 
 #__all__ = ['get_model', 'get_model_list', 'get_arcface_onnx', 'get_scrfd']
 __all__ = ['get_model']
@@ -29,8 +31,13 @@ class ModelRouter:
             return SCRFD(model_file=self.onnx_file, session=session)
         elif input_shape[2]==112 and input_shape[3]==112:
             return ArcFaceONNX(model_file=self.onnx_file, session=session)
+        elif input_shape[2]==192 and input_shape[3]==192:
+            return Landmark(model_file=self.onnx_file, session=session)
+        elif input_shape[2]==96 and input_shape[3]==96:
+            return Attribute(model_file=self.onnx_file, session=session)
         else:
-            raise RuntimeError('error on model routing')
+            #raise RuntimeError('error on model routing')
+            return None
 
 def find_onnx_file(dir_path):
     if not os.path.exists(dir_path):
@@ -52,7 +59,7 @@ def get_model(name, **kwargs):
     else:
         model_file = name
     assert osp.isfile(model_file), 'model should be file'
-    router = ModelRouter(name)
+    router = ModelRouter(model_file)
     model = router.get_model()
     #print('get-model for ', name,' : ', model.taskname)
     return model
