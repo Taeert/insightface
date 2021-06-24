@@ -14,7 +14,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa -y
 RUN apt update
 RUN apt install python3.7 python3.7-dev python3-pip -y
 RUN python3.7 -m pip install --upgrade pip
-RUN apt install ffmpeg libsm6 libxext6 -y
+RUN apt install ffmpeg libsm6 libxext6  -y
 RUN pip install mxnet-cu112 flask jsonpickle
 RUN cd python-package && pip install . && cd ..
 

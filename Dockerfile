@@ -7,7 +7,7 @@ RUN mkdir -p ~/.insightface/
 RUN mv models ~/.insightface/
 
 RUN apt update
-RUN apt install ffmpeg libsm6 libxext6 -y
+RUN apt install ffmpeg libsm6 libxext6  -y
 RUN python3.7 -m pip install --upgrade pip
 RUN python3.7 -m pip install -r requirements.txt
 RUN cd python-package && pip install . && cd ..
